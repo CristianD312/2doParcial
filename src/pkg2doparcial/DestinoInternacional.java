@@ -1,9 +1,7 @@
-
 package pkg2doparcial;
 
+public class DestinoInternacional extends Destino {
 
-public class DestinoInternacional extends Destino{
-    
     private int precioxkm; // Impuesto adicional en $
     private int gestionPasaporte;
     private boolean solicitudPasaporte;
@@ -39,14 +37,13 @@ public class DestinoInternacional extends Destino{
         this.solicitudPasaporte = solicitudPasaporte;
     }
 
-  
-
     @Override
     public double calcularCostoPasaje() {
-     // Aca solo Dios sabe que codigo va.    
-      return 0;
+        if (solicitudPasaporte) {
+            return (gestionPasaporte + (precioxkm * getDistancia()));
+        }
+        return (precioxkm * getDistancia());
+
     }
-    
+
 }
-
-

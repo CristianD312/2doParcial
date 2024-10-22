@@ -21,7 +21,29 @@ public class Main {
         vendedores.add(new Vendedor(01,"Ana", 5000, 5));
         vendedores.add(new Vendedor(02,"Luis", 4500, 3));
         vendedores.add(new Vendedor(03,"María", 5500, 7));
+        
+        Agencia age = new Agencia(destinos.get(0), vendedores.get(0));
+        
+        System.out.println(age.getVendedor().getNombre()+"vendió :"+age.getDestino().getNombre()+"costo: $"+age.calcularPrecioPasaje());
+        
+        List<Agencia>rauchTurismo = new ArrayList<>();
+        
+        for (int i = 0; i < 7; i++) {
+           rauchTurismo.add(new Agencia (destinos.get(numeroAleatorioEntre(0, destinos.size())), vendedores.get(numeroAleatorioEntre(0, vendedores.size())))); 
+        }
+        
+        //rauchTurismo.add(new Agencia (destinos.get(numeroAleatorioEntre(0, 6)), vendedores.get(numeroAleatorioEntre(0, 2))));
+        double totalVendido=0;
+        for (Agencia agencia : rauchTurismo) {
+            System.out.println("vendedor: "+agencia.getVendedor().getNombre()+" / Destino: "+agencia.getDestino().getNombre()+" / costo: $"+agencia.calcularPrecioPasaje());
+            totalVendido=totalVendido+agencia.calcularPrecioPasaje();
+        }
+        
+        System.out.println("El total de pasajes vendidos es $"+totalVendido);
 
+    }
+    public static int numeroAleatorioEntre(int min, int max) {
+        return (int) (Math.random() * (max - min )) + min;
     }
     /*
     A TENER EN CUENTA
