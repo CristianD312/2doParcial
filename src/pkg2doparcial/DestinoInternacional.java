@@ -6,14 +6,24 @@ public class DestinoInternacional extends Destino {
     private int gestionPasaporte;
     private boolean solicitudPasaporte;
 
-    public DestinoInternacional(int precioxkm, int gestionPasaporte, boolean solicitudPasaporte, String nombre, double distancia, int idDestino) {
-        super(nombre, distancia, idDestino);
+
+    public DestinoInternacional(int precioxkm, int gestionPasaporte, boolean solicitudPasaporte, String nombre, double distancia, int idDestino, int contadorVentas) {
+        super(nombre, distancia, idDestino, contadorVentas);
         this.precioxkm = precioxkm;
         this.gestionPasaporte = gestionPasaporte;
         this.solicitudPasaporte = solicitudPasaporte;
+ 
     }
 
-    public double getImpuesto() {
+    public int getPrecioxkm() {
+        return precioxkm;
+    }
+
+    public void setPrecioxkm(int precioxkm) {
+        this.precioxkm = precioxkm;
+    }
+
+      public double getImpuesto() {
         return precioxkm;
     }
 
@@ -35,6 +45,11 @@ public class DestinoInternacional extends Destino {
 
     public void setSolicitudPasaporte(boolean solicitudPasaporte) {
         this.solicitudPasaporte = solicitudPasaporte;
+    }
+
+    @Override
+    public void incrementarContadorVentas() {
+        this.contadorVentas++;
     }
 
     @Override
